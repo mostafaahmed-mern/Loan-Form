@@ -1,99 +1,189 @@
-.flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* ========== Page + Card ========== */
 .page {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #2b1bff, #7b2cff, #b14cff);
   padding: 24px;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.08),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #2b1bff, #7b2cff, #b14cff);
 }
+
 .card {
   width: min(900px, 92vw);
   background: rgba(255, 255, 255, 0.92);
-  border-radius: 24px;
+  border-radius: 26px;
   padding: 48px 56px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
+/* ========== Title ========== */
+.title {
+  margin: 0;
+  text-align: center;
+  font-size: 44px;
+  letter-spacing: -0.5px;
+  color: #1f1b2e;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 16px;
+  color: rgba(31, 27, 46, 0.65);
+}
+
+/* ========== Form Layout ========== */
 .form {
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
 }
 
 .row {
   display: flex;
-  gap: 24px;
+  gap: 22px;
 }
 
 .field {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  gap: 8px;
 }
 
-.field input {
-  width: 100%;
+label {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(31, 27, 46, 0.85);
 }
 
+/* ========== Inputs + Select ========== */
 input,
 select {
-  padding: 12px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
+  width: 100%;
   box-sizing: border-box;
-}
-input:focus {
-  outline: none;
-  border-color: #7b2cff;
-  box-shadow: 0 0 0 1px rgba(123, 44, 255, 0.25);
+
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  background: white;
+  font-size: 14px;
+  color: #1f1b2e;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+input::placeholder {
+  color: rgba(31, 27, 46, 0.45);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #7b2cff;
+  box-shadow: 0 0 0 2px rgba(123, 44, 255, 0.2);
+}
+
+/* Select: custom arrow */
+select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+/* ========== Switch Row ========== */
 .switch-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  justify-content: space-between;
-}
-/* *********************************************** */
-/* عمل شكل ال check Box  */
-input[type="checkbox"] {
-  appearance: none;
-  width: 50px;
-  height: 26px;
-  background-color: #d1d5db;
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 4px;
 }
 
-/* الدايرة */
+.switch-label {
+  font-weight: 600;
+  color: rgba(31, 27, 46, 0.85);
+}
+
+/* Custom Switch */
+input[type="checkbox"] {
+  appearance: none;
+  width: 54px;
+  height: 28px;
+  background-color: #d1d5db;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
 input[type="checkbox"]::before {
   content: "";
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   background-color: white;
   border-radius: 50%;
   top: 2px;
   left: 2px;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
-/* حالة التفعيل */
 input[type="checkbox"]:checked {
   background-color: #7b2cff;
 }
 
 input[type="checkbox"]:checked::before {
-  transform: translateX(24px);
+  transform: translateX(26px);
 }
 
-/* ********************************************************** */
+/* ========== Button ========== */
+.btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 14px 16px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(90deg, #7b2cff, #5b2cff);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(123, 44, 255, 0.35);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.arrow {
+  margin-left: 8px;
+  font-size: 18px;
+  vertical-align: middle;
+}
