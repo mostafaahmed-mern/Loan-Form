@@ -1,4 +1,5 @@
 import "../loanformstylee.css";
+import Modal from "./Modal";
 
 export default function LoanForm() {
   return (
@@ -48,6 +49,8 @@ export default function LoanForm() {
           </button>
         </form>
       </div>
+
+      <Modal />
     </div>
   );
 }
