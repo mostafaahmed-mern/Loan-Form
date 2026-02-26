@@ -1,11 +1,9 @@
 import "../loanformstylee.css";
-// import Modal from "./Modal";
+import Modal from "./Modal";
 import { useState } from "react";
 
 export default function LoanForm() {
-  // const [btnisDisabled, setBtnisDisabled] = useState(true);
-  // wrong way to disable the button that makes the form unresponsive, instead we will use a variable to check if the button should be disabled or not and will make some thing we do not need in react it should be one way of truth.
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [loanInputs, setLoanInputs] = useState({
     name: "",
     phone: "",
@@ -13,16 +11,30 @@ export default function LoanForm() {
     isEmployee: false,
     salary: "",
   });
-  const btnisDisabled =
-    loanInputs.name || loanInputs.phone || loanInputs.age || loanInputs.salary;
+
+  const btnIsDisabled =
+    !loanInputs.name ||
+    !loanInputs.phone ||
+    !loanInputs.age ||
+    !loanInputs.salary;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsModalVisible(true);
+  }
+
+  function handlePageClick() {
+    // اقفل المودال لو مفتوح
+    if (isModalVisible) setIsModalVisible(false);
+  }
 
   return (
-    <div className="page">
-      <div className="card">
+    <div className="page" onClick={handlePageClick}>
+      <div className="card" onClick={(e) => e.stopPropagation()}>
         <h1 className="title">Request a Loan</h1>
         <p className="subtitle">Fill the form below to apply for a loan.</p>
 
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="field">
               <label htmlFor="name">Name</label>
@@ -76,7 +88,6 @@ export default function LoanForm() {
             <label htmlFor="salary">Salary</label>
             <select
               id="salary"
-              defaultValue=""
               value={loanInputs.salary}
               onChange={(e) =>
                 setLoanInputs({ ...loanInputs, salary: e.target.value })
@@ -94,16 +105,22 @@ export default function LoanForm() {
 
           <button
             className="btn"
-            id={btnisDisabled ? "" : "disabled"}
+            id={btnIsDisabled ? "disabled" : "enabled"}
             type="submit"
-            disabled={btnisDisabled}
+            disabled={btnIsDisabled}
           >
             Submit <span className="arrow">›</span>
           </button>
         </form>
       </div>
 
-      {/* <Modal /> */}
+      {/* امنع الضغط جوه المودال يقفل الصفحة */}
+      <div onClick={(e) => e.stopPropagation()}>
+        <Modal
+          isVisible={isModalVisible}
+          onClose={() => setIsModalVisible(false)}
+        />
+      </div>
     </div>
   );
 }
