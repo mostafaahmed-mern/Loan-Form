@@ -1,21 +1,35 @@
 # Loan Form (React)
 
-واجهة بسيطة لطلب قرض (Loan Request) مبنية بـ React.  
-المشروع عبارة عن فورم يجمع بيانات المستخدم (الاسم/الموبايل/السن/هل موظف/شريحة الراتب) مع Modal يظهر عند الإرسال لتأكيد نجاح إرسال الطلب.
+A simple loan request form built with React.  
+This project was created as a basic exercise to practice core React concepts such as:
+- Managing form data with state
+- Handling events (onChange / onSubmit)
+- Controlling the UI based on state (show/hide a modal, disable/enable submit)
 
 ---
 
 ## Features
 
-- Form UI بسيط وحديث (Card + Gradient Background).
-- حقول:
+- Clean form UI (card layout + gradient background).
+- Inputs:
   - Name
   - Phone Number
   - Age
   - Employee (Checkbox)
   - Salary Range (Select)
-- زر Submit بيبقى Disabled لحد ما كل الحقول المطلوبة تتملي.
-- Success Modal بعد الإرسال + إمكانية إغلاقه.
+- The Submit button stays disabled until required fields are filled.
+- A success modal appears after submitting, with the ability to close it.
+
+---
+
+## Learning Goals
+
+- Practice state management for form inputs (using `useState`).
+- Update state on every input change.
+- Prevent default form submit behavior using `preventDefault`.
+- Use conditional rendering to show/hide the modal.
+- Handle click / submit / change events.
+- Improve UX by disabling the submit button until the form is valid.
 
 ---
 
@@ -23,36 +37,36 @@
 
 - React
 - Create React App (react-scripts)
-- CSS (بدون مكتبات خارجية)
+- CSS (no external UI libraries)
 
 ---
 
 ## Getting Started
 
-### 1) Clone
+### 1) Clone the repo
 ```bash
 git clone https://github.com/mostafaahmed-mern/Loan-Form.git
 cd Loan-Form
 2) Install dependencies
 npm install
-3) Run
+3) Run the app
 npm start
 
-هيفتح على:
+The app will run at:
 
 http://localhost:3000
 
 Available Scripts
 
-npm start تشغيل المشروع في وضع التطوير
+npm start Runs the app in development mode
 
-npm test تشغيل الاختبارات
+npm test Runs tests
 
-npm run build Build للإنتاج
+npm run build Builds the app for production
 
-npm run eject (غير مستحسن إلا لو محتاج تحكم كامل)
+npm run eject Ejects CRA configuration (not recommended unless needed)
 
-Project Structure (مختصر)
+Project Structure (Brief)
 src/
   components/
     LoanForm.js
@@ -63,9 +77,9 @@ src/
   index.js
 Notes / Behavior
 
-عند الضغط على Submit يتم منع Refresh (preventDefault) ويظهر الـ Modal.
+On submit, the form prevents page refresh (preventDefault) and shows the modal.
 
-الضغط خارج الـ Modal يقفله، والضغط داخله لا يقفله (stopPropagation)
+Clicking outside the modal closes it, clicking inside does not (uses stopPropagation).
 ```
 <img width="1377" height="868" alt="image" src="https://github.com/user-attachments/assets/7cd7468d-95a3-4ba2-9438-6cb2435f0f5c" />
 
