@@ -1,0 +1,142 @@
+/* overlay يغطي الشاشة + تعتيم + blur */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+
+  background: rgba(12, 0, 35, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* صندوق المودال الأبيض */
+.modal {
+  width: min(760px, 92vw);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 26px;
+  padding: 52px 56px 44px;
+  position: relative;
+  text-align: center;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* زر X */
+.modal__x {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 12px;
+
+  background: transparent;
+  color: rgba(70, 70, 90, 0.7);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal__x:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* الأيقونة الخضرا */
+.modal__icon {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    #66ff7a 0%,
+    #25d64a 35%,
+    #10b53a 100%
+  );
+  color: white;
+
+  box-shadow:
+    0 14px 35px rgba(16, 181, 58, 0.35),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.18);
+  position: relative;
+}
+
+/* لمعات بسيطة حوالين الأيقونة */
+.modal__icon::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.65) 0 3px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 255, 255, 0.45) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 65% 80%,
+      rgba(255, 255, 255, 0.35) 0 2px,
+      transparent 3px
+    );
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.modal__icon svg {
+  width: 52px;
+  height: 52px;
+}
+
+/* العنوان والوصف */
+.modal__title {
+  margin: 18px 0 10px;
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 800;
+  color: #1b1b2a;
+}
+
+.modal__desc {
+  margin: 0 0 28px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  color: rgba(30, 30, 50, 0.65);
+}
+
+/* زر Close */
+.modal__btn {
+  border: 0;
+  cursor: pointer;
+
+  width: min(340px, 85%);
+  height: 56px;
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, #8d4bff 0%, #5c2bff 100%);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+
+  box-shadow:
+    0 18px 35px rgba(92, 43, 255, 0.35),
+    0 6px 14px rgba(92, 43, 255, 0.25);
+}
+
+.modal__btn:hover {
+  transform: translateY(-1px);
+}
+
+.modal__btn:active {
+  transform: translateY(1px);
+}

@@ -187,3 +187,15 @@ input[type="checkbox"]:checked::before {
   font-size: 18px;
   vertical-align: middle;
 }
+/* ///////////////////////////////// */
+
+#disabled {
+  color: rgb(241, 241, 241) !important;
+  background: gray !important;
+  color: white;
+}
+
+#disabled:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgb(77, 75, 76);
+}
