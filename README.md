@@ -65,7 +65,8 @@ Notes / Behavior
 
 عند الضغط على Submit يتم منع Refresh (preventDefault) ويظهر الـ Modal.
 
-الضغط خارج الـ Modal يقفله، والضغط داخله لا يقفله (stopPropagation).
+الضغط خارج الـ Modal يقفله، والضغط داخله لا يقفله (stopPropagation)
+```
 <img width="1377" height="868" alt="image" src="https://github.com/user-attachments/assets/7cd7468d-95a3-4ba2-9438-6cb2435f0f5c" />
 
 <img width="1884" height="930" alt="image" src="https://github.com/user-attachments/assets/e5a92fad-eaff-4f14-b525-89684cf7bcd8" />
